@@ -17,7 +17,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private EmployeeRepository employeeRepository;
     //private RestTemplate restTemplate;
-    private WebClient webClient;
+    //private WebClient webClient;
+    private APIClient apiClient;
     @Override
     public EmployeeDto savedEmployee(EmployeeDto employeeDto) {
         Employee employee = new Employee(
@@ -47,11 +48,14 @@ public class EmployeeServiceImpl implements EmployeeService {
                 DepartmentDto.class
                 DepartmentDto departmentDto = responseEntity.getBody();
 */
-        DepartmentDto departmentDto= webClient.get()
+/*        DepartmentDto departmentDto= webClient.get()
                 .uri("http://localhost:8080/api/departments/" + employee.getDepartmentCode())
                 .retrieve()
                 .bodyToMono(DepartmentDto.class)
                 .block();
+*/
+        DepartmentDto departmentDto = apiClient.getDepartment(employee.getDepartmentCode());
+
         EmployeeDto employeeDto = new EmployeeDto(
                 employee.getId(),
                 employee.getFirstName(),
