@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/department-service/department-service/department-service.iml" filepath="$PROJECT_DIR$/department-service/department-service/department-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/employee-service/employee-service/employee-service.iml" filepath="$PROJECT_DIR$/employee-service/employee-service/employee-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/springboot-microservices.iml" filepath="$PROJECT_DIR$/.idea/springboot-microservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-registry/service-registry/service-registry.iml" filepath="$PROJECT_DIR$/service-registry/service-registry/service-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/springboot-microservice.iml" filepath="$PROJECT_DIR$/.idea/springboot-microservice.iml" />
     </modules>
   </component>
 </project>
