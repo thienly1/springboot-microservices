@@ -17,21 +17,16 @@ public class EmployeeServiceApplication {
 	public RestTemplate restTemplate(){
 		return new RestTemplate();
 	}*/
-/*
+
 	@Bean
 	public WebClient webClient(){
 		return WebClient.builder().build();
 	}
-*/
-
 
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeServiceApplication.class, args);
 	}
 
-	public static interface EmployeeService {
-		EmployeeDto savedEmployeeDto(EmployeeDto employeeDto);
 
-	}
 }
