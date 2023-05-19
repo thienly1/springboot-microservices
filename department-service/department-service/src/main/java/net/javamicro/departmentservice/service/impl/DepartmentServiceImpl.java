@@ -3,6 +3,7 @@ package net.javamicro.departmentservice.service.impl;
 import lombok.AllArgsConstructor;
 import net.javamicro.departmentservice.dto.DepartmentDto;
 import net.javamicro.departmentservice.entity.Department;
+import net.javamicro.departmentservice.mapper.DepartmentMapper;
 import net.javamicro.departmentservice.repository.DepartmentRepository;
 import net.javamicro.departmentservice.service.DepartmentService;
 import org.springframework.stereotype.Service;
@@ -16,31 +17,16 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public DepartmentDto saveDepartment(DepartmentDto departmentDto) {
         //convert department dto to department jpa entity
-        Department department= new Department(
-                departmentDto.getId(),
-                departmentDto.getDepartmentName(),
-                departmentDto.getDepartmentDescription(),
-                departmentDto.getDepartmentCode()
-        );
+        Department department= DepartmentMapper.mapToDepartment(departmentDto);
         Department savedDepartment = departmentRepository.save(department);
-        DepartmentDto savedDepartmentDto = new DepartmentDto(
-                savedDepartment.getId(),
-                savedDepartment.getDepartmentName(),
-                savedDepartment.getDepartmentDescription(),
-                savedDepartment.getDepartmentCode()
-        );
+        DepartmentDto savedDepartmentDto = DepartmentMapper.mapToDepartmentDto(savedDepartment);
         return savedDepartmentDto;
     }
 
     @Override
     public DepartmentDto getDepartmentByCode(String departmentCode) {
         Department department = departmentRepository.findByDepartmentCode(departmentCode);
-        DepartmentDto departmentDto= new DepartmentDto(
-                department.getId(),
-                department.getDepartmentName(),
-                department.getDepartmentDescription(),
-                department.getDepartmentCode()
-        );
+        DepartmentDto departmentDto= DepartmentMapper.mapToDepartmentDto(department);
         return departmentDto;
     }
 }
